@@ -362,6 +362,12 @@ class LinkedInApplication(object):
         response = self.make_request('GET', url, params=params, headers=headers)
         raise_for_error(response)
         return response.json()
+    
+    def get_num_followers(self, company_id, params=None, headers=None):
+        url = '%s/%s/num-followers' % (ENDPOINTS.COMPANIES, str(company_id))
+        response = self.make_request('GET', url, params=params, headers=headers)
+        raise_for_error(response)
+        return response.json()
 
     def get_company_products(self, company_id, selectors=None, params=None,
                              headers=None):
